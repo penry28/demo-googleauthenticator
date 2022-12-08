@@ -17,7 +17,7 @@ class TwoFaceVerify
     public function handle(Request $request, Closure $next)
     {
         $secretCode = auth()->user()->secret_code;
-        if ($secretCode && !session("2fa_verified")) {
+        if ($secretCode && session("2fa_verified") == 'verified') {
             return redirect()->route("2fa.verifyForm");
         }
         return $next($request);

@@ -26,7 +26,7 @@ class VerifyTwoFaceController extends Controller
             return redirect()->back()->withErrors($errors);
         }
 
-        session(["2fa_verified" => true]);
+        session(["2fa_verified" => 'verified']);
         return redirect("home");
     }
 }
